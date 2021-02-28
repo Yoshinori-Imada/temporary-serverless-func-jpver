@@ -1,16 +1,17 @@
 const result = document.querySelector('.result');
 
-
-const fetchProduct= async()=>{
-  result.innerHTML=`<h2>Loading...</h>`
+const fetchProduct = async () => {
+  result.innerHTML = `<h2>Loading...</h>`;
   try {
-    const id = window.location.search
+    const id = window.location.search;
     // const id= '?id=1'
     // const {data:{fields}} = await axios.get(`/api/3-product${id}`)
-    const {data:{fields}} = await axios.get(`/api/3-z-complete${id}`)
-  const {name, desc, price, image}= fields
-  result.innerHTML=`
-  <h1 class="title">Single Product</h1>
+    const {
+      data: { fields },
+    } = await axios.get(`/api/3-z-complete${id}`);
+    const { name, desc, price, image } = fields;
+    result.innerHTML = `
+  <h1 class="title">${name}</h1>
   <article class="product">
     <img class="product-img"
     src="${image[0].url}"
@@ -24,8 +25,8 @@ const fetchProduct= async()=>{
   </article>
   `;
   } catch (error) {
-    result.innerHTML=`<h2>${error.response.data}</h2>`
+    result.innerHTML = `<h2>${error.response.data}</h2>`;
   }
-}
+};
 
 fetchProduct();
