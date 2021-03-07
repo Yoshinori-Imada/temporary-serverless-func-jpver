@@ -15,7 +15,8 @@ const fetchProduct = async () => {
   <article class="product">
     <img class="product-img"
     src="${image[0].url}"
-    alt="${name}" />
+    alt="${name}" 
+    />
     <div class="product-info">
       <h5 class="title">${name}</h5>
       <h5 class="price">$${price}</h5>
